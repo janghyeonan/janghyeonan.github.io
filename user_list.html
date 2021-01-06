@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <style>
+    div{
+      font-size: .9em;
+      color: #4a4a4a;
+    }
+    a{
+      text-decoration-line: none;
+      color: #4a4a4a;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      $.getJSON('./test.json', function(data){
+        var html = [];
+
+        $.each(data, function(i, item){
+          console.log(item.users.length);
+          for(var num = 0; num < item.users.length; num++){
+            html.push('<div style="margin: 1em 1em 1em 1em;">');
+            html.push('<div> 아이디 : '+item.users[num].id+'</div>');
+            html.push('<div> 닉네임 : '+item.users[num].nickname+'</div>');
+            html.push('<div> 블로그주소 : <a href="'+item.users[num].blog+'" target="_blank">'+item.users[num].blog+'</a></div>');
+            html.push('</div>');
+          }
+        });
+        $('#data-container').html(html.join(''));
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2>JSON데이터</h2>
+  <div id="data-container"></div>
+</body>
+</html>

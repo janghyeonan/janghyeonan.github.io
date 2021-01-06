@@ -1,0 +1,28 @@
+[
+    {
+      "myname": "하잉",
+      "users":
+      [
+        {
+          "id": "didqls1013",
+          "nickname": "냥쌤 부산피아노",
+          "blog": "https://blog.naver.com/didqls1013"
+        },
+        {
+          "id": "checkmate_out",
+          "nickname": "buttercup",
+          "blog": "https://blog.naver.com/checkmate_out"
+        },
+        {
+          "id": "mink0109",
+          "nickname": "lillian",
+          "blog": "https://blog.naver.com/mink0109"
+        },
+        {
+          "id": "skdhdtnwl",
+          "nickname": "뚜디",
+          "blog": "https://blog.naver.com/skdhdtnwl"
+        }
+      ]
+    }
+  ]
