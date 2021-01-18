@@ -9,20 +9,272 @@
         .center {
             text-align: left;
         }
+
         img {
             width: 400px;
             height: 400px;
         }
-        p{
-            
-        }
-        ul{
+
+        p {}
+
+        ul {
             text-align: left;
         }
+
+        .big-area {
+            float: left;
+            width: 100px;
+            margin: 0 10px 0 0;
+            padding: 10px;
+            background: #999;
+        }
+
+        .small-unit {
+            float: left;
+            width: 48px;
+            height: 48px;
+            color: #fff;
+            background: #333;
+            margin: 1px;
+        }
+
+        body {
+            font: 14px/1.8 Arial, Helvetica, sans-serif;
+        }
+
+        .frame {
+            width: 800px;
+            margin: 0 auto;
+            border: 1px solid #aaa;
+        }
+
+        .header {
+            padding: 40px 10px;
+            text-align: center;
+            background: #eee;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            background: #5457de;
+            color: #fff;
+            display: inline-block;
+            padding: 0 8px;
+        }
+
+        .container {
+            overflow: hidden;
+        }
+
+        .nav {
+            float: left;
+            width: 150px;
+            background: #333;
+            color: #fff;
+            margin-right: 50px;
+        }
+
+        .nav-list {
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .nav-item {
+            margin: 4px 0;
+        }
+
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            padding: 4px 10px;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background: #5457de;
+        }
+
+        .content {
+            float: left;
+            width: 600px;
+        }
+
+        .footer {
+            text-align: center;
+            border-top: 1px solid #aaa;
+            margin: 20px 20px 0;
+            font-size: 12px;
+        }
+        .container {
+  display: table;
+}
+.nav, .content {
+  display: table-cell;
+}
+.container {
+  background: #333;
+}
+.content {
+  background: #fff;
+}
+.container {
+  background: url('img/bg.png') repeat-y #fff;
+}
     </style>
 </head>
 
 <body>
+    <div class="frame">
+        <div class="header">
+            <div class="logo">LOGO</div>
+        </div>
+        <!-- //header -->
+        <div class="container">
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="" class="nav-link">Menu-1</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Menu-2</a></li>
+                    <li class="nav-item"><a href="" class="nav-link">Menu-3</a></li>
+                </ul>
+            </div>
+            <!-- //nav -->
+            <div class="content">
+                <h1>Hello World</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nam error ipsa commodi
+                    exercitationem fugiat praesentium tempore inventore voluptate dolore. Ipsa quisquam nemo enim
+                    explicabo aut accusantium ex ab perspiciatis.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit nam error ipsa commodi
+                    exercitationem fugiat praesentium tempore inventore voluptate dolore. Ipsa quisquam nemo enim
+                    explicabo aut accusantium ex ab perspiciatis.
+                </p>
+            </div>
+        </div>
+        <!-- //container -->
+        <div class="footer">
+            <p class="copyright">&copy;copy</p>
+        </div>
+        <!-- //footer -->
+    </div>
+    <!-- //frame -->
+    <h1>안장현의 포트폴리오</h1>
+    <h2>안장현의 포트폴리오</h2>
+
+    <h3>마크업</h3>
+    <h1>HTML 요소</h1>
+    <h3>HTML 요소의 일반적인 형태</h3>
+    <h2>HTML 요소의 가장 보편적인 형태</h2>
+    <h3>데이터 형식</h3>
+    <h5>문서 형식 선언</h5>
+    <h1>시맨틱 웹</h1>
+    <h6>전송</h6>
+    <h1>바다와 나비 - 김기림</h1>
+    <pre>
+아무도 그에게 수심(水深)을 일러 준 일이 없기에
+흰 나비는 도모지 바다가 무섭지 않다.
+ 
+청(靑)무우밭인가 해서 내려갔다가는
+어린 날개가 물결에 절어서
+공주(公主)처럼 지쳐서 돌아온다.
+ 
+삼월(三月)달 바다가 꽃이 피지 않아서 서글픈
+나비 허리에 새파란 초생달이 시리다.</pre>
+
+    <marquee>왜 이거 쓰면 안되나?</marquee>
+    <abbr title="World Wide Web">WWW</abbr>는 언터넷에 연결된...
+
+    <div class="float-frame">
+        <div class="big-area">
+            <div class="small-unit">1</div>
+            <div class="small-unit">2</div>
+            <div class="small-unit">3</div>
+            <div class="small-unit">4</div>
+        </div>
+        <div class="big-area">
+            <div class="small-unit">A</div>
+            <div class="small-unit">B</div>
+            <div class="small-unit">C</div>
+            <div class="small-unit">D</div>
+        </div>
+    </div>
+
+    <dl>
+        <dt>한글</dt>
+        <dd>
+            우리나라 글자의 이름. 1445년에 훈민정음이라는 이름으로 반포되었다.
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>이름</dt>
+        <dt>Name</dt>
+        <dd>홍길동</dd>
+        <dt>취미</dt>
+        <dt>Hobby</dt>
+        <dd>축구</dd>
+        <dd>Football</dd>
+    </dl>
+
+
+    <h1>라면 레시피</h1>
+    <dl>
+        <dt>준비물</dt>
+        <dd>
+            <ul>
+                <li>물 550cc</li>
+                <li>라면봉지</li>
+            </ul>
+        </dd>
+
+        <dt>조리법</dt>
+        <dd>
+            <ol>
+                <li>물을 끓인다.</li>
+                <li>물이 끓으면, 면과 스프를 넣는다.</li>
+                <li>다 익으면 불을 끄고 맛있게 먹는다.</li>
+            </ol>
+        </dd>
+    </dl>
+
+    <h1>30년의 맛 그대로, 웨버 순대국밥</h1>
+    <!-- 문서의 가장 핵심적이고 상위에 위치하는 제목입니다. -->
+    <dl>
+        <dt>글쓴이 :</dt>
+        <dd>맛집 킬러</dd>
+    </dl>
+
+    <!-- 본문 시작 -->
+    <!-- 헤드라인 요소를 이용해서 문서의 개요를 만듭니다. -->
+    <h2>서론</h2>
+    <p>오늘은 보슬보슬 비가오는 날씨입니다. 이런 날이면 이상하게 진한 순대 국물이 생각이 납니다.</p>
+    <p>마침 친구가 근처 유명한 국밥집이 있다하여 오늘의 맛집, 웨버 순대국밥을 찾아가 보았습니다.</p>
+
+    <h2>식당 내부</h2>
+    <p>이 국밥집은 <strong>30년 동안 이어온 전통</strong> 때문인지, 옛날 시골집 같은 느낌을 줍니다. 노란 방바닥이 시골집의 향수를 자극합니다.</p>
+
+    <h2>메뉴</h2>
+    <ul>
+        <li>순대국밥</li>
+        <li>순대</li>
+    </ul>
+    <p>이 곳의 메뉴는 오직 두 가지입니다. 역시 주인장의 자부심이 느껴지는 메뉴입니다.</p>
+
+    <h2>음식 평가</h2>
+    <h3>외형</h3>
+    <img src="http://webberstd.cdn1.cafe24.com/img/html1/img-end-soup.png" alt="갓나온 하얀 순대국밥의 모습" />
+    <p>먼가 담백하게 담긴 순대의 모습이 아주 보기 좋습니다.</p>
+    <h3>맛</h3>
+    <p>머라 표현해야 할까요......</p>
+    <p>마치... <em>걸레 같습니다.</em> 이런 맛은 난생 처음입니다. 먹으면서 몇 번이고 헛구역질을 했습니다.</p>
+
+    <h2>결론</h2>
+    <p>기가 막힙니다. 다신 안온다. 퉷.</p>
+
     <div class='center'>
         <o>- 포트폴리오</o>
         <p></p>
