@@ -3,43 +3,43 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>안장현의 프로필</title>    
+    <title>안장현의 프로필</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <style>
-    div{
-      font-size: 15px;
-      color: #4a4a4a;
-    }
-    a{
-      text-decoration-line: none;
-      color: #4a4a4a;
-    }
-  </style>
-  <script>
-    $(document).ready(function(){
-      $.getJSON('./my.json', function(data){
-        var html = [];
+    <style>
+        div {
+            font-size: 15px;
+            color: #4a4a4a;
+        }
 
-        $.each(data, function(i, item){
-          console.log(item.users.length);
-          for(var num = 0; num < item.users.length; num++){
-            html.push('<div style="margin: 1em 1em 1em 1em,">');
-            html.push('<div> 제목 : '+item.users[num].title+'</div>');
-            html.push('<div> 내용 : '+item.users[num].content+'</div>');
-            html.push('<div> 주소 : <a href="'+item.users[num].url+'" target="_blank">'+item.users[num].url+'</a></div>');
-            html.push('</div>');
-            html.push('<br />');
-          }
+        a {
+            text-decoration-line: none;
+            color: #4a4a4a;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $.getJSON('./my.json', function (data) {
+                var html = [];
+
+                $.each(data, function (i, item) {
+                    console.log(item.users.length);
+                    for (var num = 0; num < item.users.length; num++) {
+                        html.push('<div style="margin: 1em 1em 1em 1em,">');
+                        html.push('<div> 제목 : ' + item.users[num].title + '</div>');
+                        html.push('<div> 내용 : ' + item.users[num].content + '</div>');
+                        html.push('<div> 주소 : <a href="' + item.users[num].url + '" target="_blank">' + item.users[num].url + '</a></div>');
+                        html.push('</div>');
+                        html.push('<br />');
+                    }
+                });
+                $('#data-container').html(html.join(''));
+            });
         });
-        $('#data-container').html(html.join(''));
-      });
-    });
-  </script>
+    </script>
 </head>
-
-<body>    
-    <div id="data-container"></div>
+<body>
     <h2>- 안장현의 Program Language, Database, Tool, etc</h2>
+    <div id="data-container"></div>
     <ol>
         <li>Game QA + Software QA</h2>
         </li>
@@ -71,7 +71,7 @@
             <li>Framework</li>
             <ul>
                 <li>pytest</li>
-                <li>unittest</li>                
+                <li>unittest</li>
                 <li>stddev</li>
                 <li>datetime</li>
                 <li>csv</li>
@@ -122,7 +122,7 @@
             <li>GCP API</li>
             <ul>
                 <li>Cloud Text to Speech API</li>
-                    <li>Google Sheets API</li>
+                <li>Google Sheets API</li>
             </ul>
         </ul>
         <br />
