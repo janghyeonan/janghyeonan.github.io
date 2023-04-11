@@ -17,6 +17,15 @@
         }
     </style>
     <script>
+        function showPassword() {
+            var password = prompt("암호를 입력하세요.");
+            if (password === "2023") {
+                document.getElementById("show").style.display = "block";
+                document.getElementById("download-link").style.display = "block";
+            } else {
+                alert("잘못된 암호입니다.");
+            }
+        };
         $(document).ready(function () {
             $.getJSON('./my.json', function (data) {
                 var html = [];
@@ -38,7 +47,8 @@
     </script>
 </head>
 
-<body>
+<body onload="showPassword();">
+    <div id ="show" style="display: none;">
     <h2>- 안장현의 Program Language, Database, Tool, etc</h2>
     <!-- <div id="data-container"></div> -->
     <ol>
@@ -146,5 +156,6 @@
     <br />
     <br />
     </div>
+</div>
 </body>
 </html>
