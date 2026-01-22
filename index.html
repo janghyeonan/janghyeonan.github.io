@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>An Janghyun QA Test Automation Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f6f1;
+      --panel: #ffffff;
+      --panel-2: #f3f6f4;
+      --line: rgba(31, 39, 36, 0.12);
+      --text: #111111;
+      --muted: #111111;
+      --accent: #6fc6c5;
+      --accent-2: #8fb6ff;
+      --accent-3: #f3a76f;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", "Noto Sans KR", sans-serif;
+      background: radial-gradient(900px 520px at 10% 0%, rgba(111, 198, 197, 0.25), transparent 55%),
+        radial-gradient(800px 480px at 90% 10%, rgba(143, 182, 255, 0.22), transparent 60%),
+        radial-gradient(700px 420px at 60% 100%, rgba(243, 167, 111, 0.22), transparent 55%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .title-block h1 {
+      margin: 0 0 6px;
+      font-size: clamp(26px, 3.5vw, 36px);
+      letter-spacing: 0.02em;
+    }
+
+    .title-block span {
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(111, 198, 197, 0.18);
+      color: var(--text);
+    }
+
+    .tab-bar {
+      display: flex;
+      gap: 0;
+      margin: 6px 0 0;
+      align-items: flex-end;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      border-bottom: none;
+      background: var(--panel-2);
+      border-radius: 14px 14px 0 0;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+
+    .tab-btn + .tab-btn {
+      margin-left: 0;
+      border-left: none;
+    }
+
+    .tab-btn.active {
+      background: var(--panel);
+      font-weight: 700;
+      box-shadow: 0 -6px 14px rgba(111, 198, 197, 0.18);
+    }
+
+    .tab-panels {
+      border: 1px solid var(--line);
+      border-radius: 0 18px 18px 18px;
+      background: var(--panel);
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .company-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 18px 38px rgba(31, 39, 36, 0.12);
+    }
+
+    .company-header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .company-title {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .company-title strong {
+      font-weight: 700;
+    }
+
+    .flow-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .flow-step {
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .flow-arrow {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), transparent 60%), var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      box-shadow: 0 20px 40px rgba(31, 39, 36, 0.12);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .pill {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(143, 182, 255, 0.18);
+      border: 1px solid rgba(143, 182, 255, 0.35);
+      color: var(--text);
+    }
+
+    .flow {
+      display: grid;
+      gap: 14px;
+    }
+
+    .flow-item {
+      border-left: 2px solid var(--accent);
+      padding-left: 12px;
+    }
+
+    .flow-item h4 {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .flow-item p {
+      margin: 0;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .list-item {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .compare .list-item {
+      background: rgba(111, 198, 197, 0.1);
+      color: var(--text);
+    }
+
+    .contact-grid {
+      text-align: center;
+      justify-items: stretch;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .focus-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .focus-grid .list-item {
+      text-align: center;
+      line-height: 1.6;
+      padding: 16px;
+    }
+
+    .headline {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
+
+    .headline.small {
+      font-size: 14px;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .resume-card {
+      display: grid;
+      gap: 18px;
+    }
+
+    .resume-section {
+      padding-top: 16px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .resume-section:first-of-type {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .resume-heading {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .resume-text {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .resume-block {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+      margin-bottom: 12px;
+    }
+
+    .resume-box {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel-2);
+    }
+
+    .resume-role {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .resume-meta {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .resume-subheading {
+      font-size: 12px;
+      font-weight: 700;
+      margin: 10px 0 6px;
+    }
+
+    .resume-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .resume-skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .resume-skill {
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--panel-2);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .portfolio-box {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel-2);
+    }
+
+    .portfolio-line {
+      margin: 0 0 10px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .portfolio-line strong {
+      font-weight: 700;
+    }
+
+    .solo-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .solo-list li {
+      list-style: disc;
+    }
+
+    .mini-chart {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px dashed var(--line);
+      background: linear-gradient(180deg, rgba(111, 198, 197, 0.18), transparent 65%);
+    }
+
+    .bar {
+      flex: 1;
+      border-radius: 8px 8px 4px 4px;
+      background: linear-gradient(180deg, var(--accent), rgba(111, 198, 197, 0.3));
+      box-shadow: 0 8px 14px rgba(111, 198, 197, 0.25);
+    }
+
+    .bar.alt {
+      background: linear-gradient(180deg, var(--accent-2), rgba(143, 182, 255, 0.3));
+      box-shadow: 0 8px 14px rgba(143, 182, 255, 0.25);
+    }
+
+    .bar.alt-2 {
+      background: linear-gradient(180deg, var(--accent-3), rgba(243, 167, 111, 0.3));
+      box-shadow: 0 8px 14px rgba(243, 167, 111, 0.25);
+    }
+
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 8px 12px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid var(--line);
+    }
+
+    .legend-item.accent {
+      color: var(--accent);
+    }
+
+    .legend-item.accent-2 {
+      color: var(--accent-2);
+    }
+
+    .legend-item.accent-3 {
+      color: var(--accent-3);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+      background: var(--accent);
+    }
+
+    .dot.alt {
+      background: var(--accent-2);
+    }
+
+    .dot.alt-2 {
+      background: var(--accent-3);
+    }
+
+    .footer {
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title-block">
+        <h1 id="hero-title">An Janghyun의 이력서</h1>
+      </div>
+      <div class="top-actions">
+        <span>Updated 2026.01</span>
+      </div>
+    </header>
+
+    <div class="tab-bar" role="tablist" aria-label="문서 탭">
+      <button class="tab-btn active" type="button" data-tab="portfolio" role="tab" aria-selected="true">포트폴리오</button>
+    </div>
+
+    <div class="tab-panels">   
+      <div id="portfolio" class="tab-panel active">
+        <section class="section card">
+        <div class="section-title">
+          <span>주요 진행 내용</span>
+          <span class="pill">자동화 전략</span>
+          <span class="pill">CI/CD Gate</span>
+          <span class="pill">Quality Metrics</span>
+        </div>
+        <div class="grid grid-3 focus-grid">
+          <div class="list-item">리스크 기반 자동화 시나리오 설계 및 범위를 설정함</div>
+          <div class="list-item">CI 단계 자동화 테스트 추가 및 배포 승인 체계를 구축함</div>
+          <div class="list-item">품질 지표 설정 및 대시보드 시각화 작업 진행함</div>
+        </div>
+        </section>
+
+        <section class="section company-card">
+        <div class="company-header">
+          <h2 class="company-title"><strong>M사</strong> · <strong>WProject 테스트 자동화 환경 구축</strong></h2>
+        </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="label">- 품질 지표</div>
+          <div class="mini-chart" aria-hidden="true">
+            <div class="bar" style="height: 70%;"></div>
+            <div class="bar alt" style="height: 66%;"></div>
+            <div class="bar alt-2" style="height: 50%;"></div>
+          </div>
+            <div class="legend">
+              <span class="legend-item accent"><span class="dot"></span>자동화 커버리지 : 70%</span>
+              <span class="legend-item accent-2"><span class="dot alt"></span>수동 테스트 시간 : 1시간 30분 -> 자동 테스트 30분</span>
+              <span class="legend-item accent-3"><span class="dot alt-2"></span>수동 테스트 비율 : 50% 감소</span>
+            </div>
+        </article>
+        <article class="card">
+          <div class="label">- 원인 분석</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 물류 시스템 중 연동 기능이 많아 단독 기능 테스트 및 사이드 이펙트 리스크가 큼</span><br /><br /><span>2. 수동 회귀 테스트 비중이 높아 QA 판단이 경험에 의존</span><br /><span>ArgoCD + EKS 배포 구조에 QA 자동화가 포함되지 않음(기존 구축 내용은 단독 사용이라 지속적인 사용이 되지 않았음)</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- 테스트 자동화 설계</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. GitHub Actions 기반 CI 트리거 구성</span><br /><span>2. API + UI Test(Pytest, Playwright), Language : Python</span><br /><span>3. EKS 기반 테스트 실행 환경 분리 운영</span><br /><span>4. ArgoCD 배포 전 자동화 테스트 선행 구조 설계</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 개발/구현</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 테스트 코드와 Workflow 정의를 GitHub에서 관리</span><br /><span>2. 커밋/요청 시 GitHub Actions 실행</span><br /><span>3. EKS 테스트 환경에서 자동화 실행</span><br /><span>4. 자동화 결과를 기반으로 QA 승인 판단</span><br /><span>5. 자동화 시스템을 단독으로 설계·구축하고 운영 기준까지 정리</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- QA 프로세스 적용</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>- Before: 수동 테스트 중심, QA 경험 의존, 주관적 안정성 판단</span><br /><span>- After: CI 자동화 검증, 데이터 기반 QA 판단, 배포 전 필수 Gate 수행</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 그 외</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. QA 자동화 시스템 단독 구축(타 시스템 영향을 받지 않고 테스트 가능)</span><br /><span>2. 자동화 테스트 외 테스트 데이터 및 메서드 생성</span><br /><span>3. 슬랙 커맨드 및 알림 기능 구축</span></p>
+          </div>
+        </article>
+      </div>
+      </section>
+
+    <section class="section company-card">
+      <div class="company-header">
+        <h2 class="company-title"><strong>C사</strong> · <strong>L Project 테스트 자동화 구축</strong></h2>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="label">- 품질 지표</div>          
+          <div class="mini-chart" aria-hidden="true">
+            <div class="bar" style="height: 80%;"></div>
+            <div class="bar alt" style="height: 75%;"></div>
+            <div class="bar alt-2" style="height: 70%;"></div>
+          </div>
+          <div class="legend">
+            <span class="legend-item accent"><span class="dot"></span>자동화 커버리지 80%</span>
+            <span class="legend-item accent-2"><span class="dot alt"></span>수동 테스트 2시간 -> 자동 테스트 30분</span>
+            <span class="legend-item accent-3"><span class="dot alt-2"></span>수동 테스트 비율 : 70% 감소</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 원인 분석</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 주간/국가별 배포 구조로 반복적인 회귀 테스트 부담 증가</span><br /><span>2. 환경 차이로 자동화 실행 결과 불안정</span><br /><span>3. 기존 테스트 자동화는 있었으나 실행 환경 표준화 필요로 개선이 필요하였음</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 테스트 자동화 설계</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. CircleCI 도입</span><br /><span>2. Docker로 테스트 환경 이미지화</span><br /><span>3. 기존 코드 폐기 후 언어 변경(Python API + UI 자동화)</span><br /><span>3. 국가별 서비스 변경 시 탐지 후 그에 맞는 테스트 자동화 실행</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- 개발/구현</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. GitHub에 테스트 코드와 Dockerfile 관리</span><br /><span>2. CircleCI에서 Docker 컨테이너 실행</span><br /><span>3. QA가 필요 시 파이프라인 수동 트리거</span><br /><span>4. 웹 + 앱 테스트를 동일 파이프라인에서 실행</span><br /><span>5. 자동화 환경을 단독 구축해 재현 가능한 운영 체계 확보</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- QA 프로세스 적용</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>- Before: 로컬 환경 의존, QA 개인 PC 환경 차이 발생</span><br /><span>- After: CI + Docker 기반 표준 테스트 환경, 동일 결과 재현</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 그 외</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. FS LMS 자동화 테스트 단독 구축</span><br /><span>2. 국가별 상태 코드에 따른 자동화 테스트 구축</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section company-card">
+      <div class="company-header">
+        <h2 class="company-title"><strong>N사</strong> · <strong>Drone Simulator 자동화 테스트 구축</strong></h2>
+      </div>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="label">- 품질 지표</div>          
+          <div class="mini-chart" aria-hidden="true">
+            <div class="bar" style="height: 50%;"></div>
+            <div class="bar alt" style="height: 75%;"></div>
+            <div class="bar alt-2" style="height: 30%;"></div>
+          </div>
+          <div class="legend">
+            <span class="legend-item accent"><span class="dot"></span>자동화 커버리지 50%</span>
+            <span class="legend-item accent-2"><span class="dot alt"></span>시뮬레이터 수동 테스트 1시간 -> 자동 테스트 20분</span>
+            <span class="legend-item accent-3"><span class="dot alt-2"></span>수동 테스트 비율 30% 감소</span>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 원인 분석</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 웹/앱/시뮬레이터 연동 구조로 수동 테스트 한계</span><br /><span>2. 미션 수행 안정성을 수동 검증하기 어려움</span><br /><span>3. E2E 테스트 부재</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- 테스트 자동화 설계</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 하드웨어(드론 시뮬레이터) -> Appium(앱) -> Playwright(웹) 자동화 파이프라인</span><br /><span>2. 미션 코드를 C++ GTest로 시뮬레이터 단위 테스트 구축</span><br /><span>3. GitHub Actions 기반 CI</span><br /><span>4. Crontab 정기 자동 실행</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 개발/구현</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 테스트 서버에서 테스트 코드 pull 후 시뮬레이터 실행</span><br /><span>2. 미션 수행 → API 검증 → 앱/웹 결과 확인</span><br /><span>3. 시간 기반 자동 실행으로 지속 검증</span><br /><span>4. 통합 자동화 환경을 단독 설계·구축하여 E2E 체계 확립</span></p>
+          </div>
+        </article>        
+        <article class="card">
+          <div class="label">- QA 프로세스 적용</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>- Before: 물리 드론 테스트 중심, 사전 검증 부족</span><br /><span>- After: 시뮬레이터 기반 사전 검증, 비행 안정성 및 비행 전 소프트웨어 점검까지 QA 검증</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <div class="label">- 그 외</div>
+          <div class="portfolio-box">
+            <p class="portfolio-line"><span>1. 드론 E2E 자동화 체계 단독 구축</span><br /><span>2. 드론 조종기 앱 QA 자동화 테스트 구축</span><br /><span>3. 드론 미션 수행 후 데이터 업로드 및 데이터 분석 사이트 자동화 테스트 구축</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+      </div>
+    </div>
+
+    <section class="section card">
+      <div class="section-title">연락처</div>
+      <div class="grid grid-3 contact-grid">
+        <div class="list-item">Email: ajh910@naver.com</div>
+        <div class="list-item">GitHub: github.com/janghyeonan</div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <span>© 2026 An Janghyun. All rights reserved.</span>
+    </div>
+  </div>
+  <script>
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+  const heroTitle = document.getElementById("hero-title");
+
+  const setTab = (tabId) => {
+    tabPanels.forEach((panel) => {
+      panel.classList.toggle("active", panel.id === tabId);
+    });
+    tabButtons.forEach((btn) => {
+      const isActive = btn.dataset.tab === tabId;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-selected", isActive ? "true" : "false");
+    });
+    if (heroTitle) {
+      heroTitle.textContent =
+        tabId == "resume" ? "An Janghyun의 이력서" : "An Janghyun의 포트폴리오";
+    }
+  };
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => setTab(btn.dataset.tab));
+  });
+
+  setTab("portfolio");
+</script>
+</body>
+</html>
